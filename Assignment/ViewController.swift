@@ -17,6 +17,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     //MARK:- Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.navigationController?.isNavigationBarHidden = false
+        self.navigationItem.title = "DATA"
+        
         tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
@@ -48,7 +51,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
-    
+    /*
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 20
     }
@@ -62,6 +65,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         headerlabel.backgroundColor = UIColor.white
         return headerlabel
     }
+    */
     
 
     //MARK:- UI Related Methods
