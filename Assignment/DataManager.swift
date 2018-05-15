@@ -12,4 +12,5 @@ class DataManager {
     
     //MARK:- Properties
     static let sharedInstance = DataManager()
+    var fetchedData : [DataModel] = []
 }

@@ -7,3 +7,23 @@
 //
 
 import Foundation
+
+class ResponseParser {
+    
+    //MARK:- Parser Methods
+    
+    class func imagesFromJSON(_ json: [[String: AnyObject]]) -> [DataModel] {
+        var images = [DataModel]()
+        for image in json {
+            do {
+                images.append(try DataModel(json: image))
+            }
+            catch DataModelError.dataIDEmpty {
+                print("imageIDEmpty")
+            }
+            catch {}
+        }
+        return images
+    }
+    
+}

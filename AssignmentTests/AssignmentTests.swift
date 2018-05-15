@@ -11,9 +11,17 @@ import XCTest
 
 class AssignmentTests: XCTestCase {
     
+    var viewControllerObj: ViewController?
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        viewControllerObj = storyboard.instantiateViewController(withIdentifier: "ViewController") as? ViewController
+        XCTAssertNotNil(viewControllerObj, "ViewController not initiated properly")
+        
+        viewControllerObj?.performSelector(onMainThread: #selector(viewControllerObj?.loadView), with: nil, waitUntilDone: true)
+        viewControllerObj?.performSelector(onMainThread: #selector(viewControllerObj?.viewDidLoad), with: nil, waitUntilDone: true)
     }
     
     override func tearDown() {
@@ -32,5 +40,24 @@ class AssignmentTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    // MARK: - UITableView Testcases
+    func testThatViewConformsToTableViewDelegate() {
+        XCTAssertTrue(viewControllerObj!.conforms(to: UITableViewDelegate.self), "ViewController conforms to UITableViewDelegate")
+    }
+    
+    func testThatViewConformsToTableViewDataSources() {
+        XCTAssertTrue(viewControllerObj!.conforms(to: UITableViewDataSource.self), "ViewController conforms to UITableViewDataSources")
+    }
+    
+    func testThatViewLoads() {
+        XCTAssertNotNil(viewControllerObj, "ViewController View not initiated properly")
+    }
+    
+    
+    func testThatTableViewLoads() {
+        XCTAssertNotNil(viewControllerObj?.tableView, "TableView not initiated")
+    }
+
     
 }

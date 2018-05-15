@@ -7,3 +7,76 @@
 //
 
 import Foundation
+import UIKit
+
+
+class NetworkManager: NSObject {
+    /**
+     You obtain the global instance from a singleton class through a factory method.
+     */
+    //MARK:- Properties
+    static let shared = NetworkManager()
+    var data = DataManager.sharedInstance.fetchedData
+    
+    /**
+     fetch(for:completion:error:) will fetch Images data. URL will be supplied from Constants.URL structure.
+     
+     - parameters:
+     - for: A url to fetch the data.
+     - completion: Handle the fetched list. Output will be a [String : AnyObject]
+     - error: Handle errors which may come from API.
+     */
+    
+    //MARK:- Network Methods
+    func fetch(completion: @escaping Constants.Blocks.Completion, error: @escaping Constants.Blocks.Error) {
+        guard let url = Constants.URL.path else {
+            completion(false)
+            return
+        }
+        GET(url, completion: { (json) in
+            if let data = json as? [String: Any], let imageData = data["rows"] as? [[String: AnyObject]], let titleData = data["title"]  {
+                self.data = ResponseParser.imagesFromJSON(imageData)
+                DataManager.sharedInstance.fetchedData = self.data
+                Constants.Messages.title = titleData as! String
+                completion(true)
+            }
+        }) { (error) in
+            completion(false)
+        }
+    }
+    
+    /**
+     Privately used by NetworkManager for generate a get request for the given url.
+     
+     - parameters:
+     - url: URL instance of image url.
+     - completion: Handle the fetched data.
+     - error: Handle errors which may come from API.
+     */
+    fileprivate func GET(_ url: URL, completion: @escaping (Any) -> Void, error errorBlock: Constants.Blocks.Error?) {
+        print(url)
+        var request = URLRequest(url: url)
+        request.setValue("text/plain", forHTTPHeaderField: "Content-Type")  // the request is JSON
+        _ = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let data = data {
+                do{
+                    if let strData = NSString(data: data, encoding: String.Encoding.isoLatin1.rawValue), let finalData = strData.data(using: String.Encoding.utf8.rawValue) {
+                        let json = try? JSONSerialization.jsonObject(with: finalData, options: [])
+                        if let rootDictionary = json {
+                            completion(rootDictionary)
+                        }
+                    }
+                }
+            } else {
+                if let errorBlock = errorBlock {
+                    errorBlock(Constants.Messages.unexpectedError)
+                    completion(error!)
+                    
+                }
+            }
+            }.resume()
+    }
+}
+
+
+

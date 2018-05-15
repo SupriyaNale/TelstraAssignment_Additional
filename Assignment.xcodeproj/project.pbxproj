@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D3167E7120A59B2900A12620 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3167E7020A59B2900A12620 /* DataManager.swift */; };
-		D3167E7420A59C3A00A12620 /* CustomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3167E7320A59C3A00A12620 /* CustomeTableViewCell.swift */; };
+		D30C441B20AABD60000EA64C /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30C441A20AABD60000EA64C /* NetworkTests.swift */; };
 		D3167E7620A59E8F00A12620 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3167E7520A59E8F00A12620 /* DataModel.swift */; };
 		D352158A20A571D300B207FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D352158920A571D300B207FF /* AppDelegate.swift */; };
 		D352158C20A571D300B207FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D352158B20A571D300B207FF /* ViewController.swift */; };
@@ -17,6 +16,14 @@
 		D352159420A571D300B207FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D352159220A571D300B207FF /* LaunchScreen.storyboard */; };
 		D352159F20A571D300B207FF /* AssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D352159E20A571D300B207FF /* AssignmentTests.swift */; };
 		D35215AA20A571D400B207FF /* AssignmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35215A920A571D400B207FF /* AssignmentUITests.swift */; };
+		D3545C9220AAB37D00B6A44B /* CustomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3167E7320A59C3A00A12620 /* CustomeTableViewCell.swift */; };
+		D3545C9320AAB59600B6A44B /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3167E7020A59B2900A12620 /* DataManager.swift */; };
+		D35A8A1820A9588C009E2A4C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35A8A1720A9588C009E2A4C /* NetworkManager.swift */; };
+		D35A8A1B20A958E0009E2A4C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35A8A1A20A958E0009E2A4C /* Constants.swift */; };
+		D35A8A1D20A95A15009E2A4C /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35A8A1C20A95A15009E2A4C /* Reachability.swift */; };
+		D35A8A1F20A95B3C009E2A4C /* ResponceParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35A8A1E20A95B3C009E2A4C /* ResponceParser.swift */; };
+		D35A8A2020A95ED1009E2A4C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D352158B20A571D300B207FF /* ViewController.swift */; };
+		D35A8A2220A96EA5009E2A4C /* UIAlertViewController+Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35A8A2120A96EA5009E2A4C /* UIAlertViewController+Show.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D30C441A20AABD60000EA64C /* NetworkTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
 		D3167E7020A59B2900A12620 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		D3167E7320A59C3A00A12620 /* CustomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomeTableViewCell.swift; sourceTree = "<group>"; };
 		D3167E7520A59E8F00A12620 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
@@ -53,6 +61,11 @@
 		D35215A520A571D300B207FF /* AssignmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssignmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D35215A920A571D400B207FF /* AssignmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentUITests.swift; sourceTree = "<group>"; };
 		D35215AB20A571D400B207FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D35A8A1720A9588C009E2A4C /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		D35A8A1A20A958E0009E2A4C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D35A8A1C20A95A15009E2A4C /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		D35A8A1E20A95B3C009E2A4C /* ResponceParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponceParser.swift; sourceTree = "<group>"; };
+		D35A8A2120A96EA5009E2A4C /* UIAlertViewController+Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertViewController+Show.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +98,7 @@
 			children = (
 				D3167E7020A59B2900A12620 /* DataManager.swift */,
 				D3167E7520A59E8F00A12620 /* DataModel.swift */,
+				D35A8A1E20A95B3C009E2A4C /* ResponceParser.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -120,6 +134,8 @@
 		D352158820A571D300B207FF /* Assignment */ = {
 			isa = PBXGroup;
 			children = (
+				D35A8A1920A958D0009E2A4C /* Utilities */,
+				D35A8A1620A9587A009E2A4C /* Networking */,
 				D3167E7220A59C0300A12620 /* View */,
 				D3167E6F20A59B0400A12620 /* Model */,
 				D352158920A571D300B207FF /* AppDelegate.swift */,
@@ -137,6 +153,7 @@
 			children = (
 				D352159E20A571D300B207FF /* AssignmentTests.swift */,
 				D35215A020A571D300B207FF /* Info.plist */,
+				D30C441A20AABD60000EA64C /* NetworkTests.swift */,
 			);
 			path = AssignmentTests;
 			sourceTree = "<group>";
@@ -148,6 +165,24 @@
 				D35215AB20A571D400B207FF /* Info.plist */,
 			);
 			path = AssignmentUITests;
+			sourceTree = "<group>";
+		};
+		D35A8A1620A9587A009E2A4C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D35A8A1720A9588C009E2A4C /* NetworkManager.swift */,
+				D35A8A1C20A95A15009E2A4C /* Reachability.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		D35A8A1920A958D0009E2A4C /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D35A8A1A20A958E0009E2A4C /* Constants.swift */,
+				D35A8A2120A96EA5009E2A4C /* UIAlertViewController+Show.swift */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,10 +322,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3545C9320AAB59600B6A44B /* DataManager.swift in Sources */,
+				D3545C9220AAB37D00B6A44B /* CustomeTableViewCell.swift in Sources */,
+				D35A8A1820A9588C009E2A4C /* NetworkManager.swift in Sources */,
 				D3167E7620A59E8F00A12620 /* DataModel.swift in Sources */,
-				D3167E7420A59C3A00A12620 /* CustomeTableViewCell.swift in Sources */,
+				D35A8A1F20A95B3C009E2A4C /* ResponceParser.swift in Sources */,
 				D352158C20A571D300B207FF /* ViewController.swift in Sources */,
-				D3167E7120A59B2900A12620 /* DataManager.swift in Sources */,
+				D35A8A1B20A958E0009E2A4C /* Constants.swift in Sources */,
+				D35A8A2220A96EA5009E2A4C /* UIAlertViewController+Show.swift in Sources */,
+				D35A8A1D20A95A15009E2A4C /* Reachability.swift in Sources */,
 				D352158A20A571D300B207FF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,6 +339,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D30C441B20AABD60000EA64C /* NetworkTests.swift in Sources */,
+				D35A8A2020A95ED1009E2A4C /* ViewController.swift in Sources */,
 				D352159F20A571D300B207FF /* AssignmentTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -443,6 +485,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				DEVELOPMENT_TEAM = X78BQYR3TH;
 				INFOPLIST_FILE = Assignment/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -456,6 +499,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				DEVELOPMENT_TEAM = X78BQYR3TH;
 				INFOPLIST_FILE = Assignment/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
