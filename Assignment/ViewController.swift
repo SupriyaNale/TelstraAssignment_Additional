@@ -12,7 +12,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     //MARK:- Properties
     var tableView: UITableView = UITableView()
-    var headerView: UIView = UIView()
     var fetchedData = DataManager.sharedInstance.fetchedData
     
     var refreshCtrl: UIRefreshControl!
@@ -83,8 +82,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.register(CustomeTableViewCell.self, forCellReuseIdentifier: "Cell")
         
         self.view.addSubview(tableView)
-        self.view.addSubview(headerView)
-        
+       
     }
     
     //MARK:- Design Cell Method
