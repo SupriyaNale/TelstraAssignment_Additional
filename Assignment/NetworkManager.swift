@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+import AFNetworking
 
 class NetworkManager: NSObject {
     /**
@@ -16,10 +16,11 @@ class NetworkManager: NSObject {
      */
     //MARK:- Properties
     static let shared = NetworkManager()
-    var data = DataManager.sharedInstance.fetchedData
+    var data = DataManager.sharedInstance.fetchedData    
+    let manager = AFHTTPSessionManager()
     
     /**
-     fetch(for:completion:error:) will fetch Images data. URL will be supplied from Constants.URL structure.
+     fetch(for:completion:error:) will fetch response data. URL will be supplied from Constants.URL structure.
      
      - parameters:
      - for: A url to fetch the data.
@@ -55,26 +56,29 @@ class NetworkManager: NSObject {
      */
     fileprivate func GET(_ url: URL, completion: @escaping (Any) -> Void, error errorBlock: Constants.Blocks.Error?) {
         print(url)
-        var request = URLRequest(url: url)
-        request.setValue("text/plain", forHTTPHeaderField: "Content-Type")  // the request is JSON
-        _ = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let data = data {
-                do{
-                    if let strData = NSString(data: data, encoding: String.Encoding.isoLatin1.rawValue), let finalData = strData.data(using: String.Encoding.utf8.rawValue) {
-                        let json = try? JSONSerialization.jsonObject(with: finalData, options: [])
-                        if let rootDictionary = json {
-                            completion(rootDictionary)
-                        }
-                    }
-                }
-            } else {
-                if let errorBlock = errorBlock {
-                    errorBlock(Constants.Messages.unexpectedError)
-                    completion(error!)
-                    
-                }
+        
+        manager.requestSerializer = AFHTTPRequestSerializer()
+        manager.responseSerializer = AFHTTPResponseSerializer()
+        manager.responseSerializer.acceptableContentTypes = NSSet.init(object: "text/plain") as? Set<String>
+        
+        manager.get(url.absoluteString, parameters: nil, progress:{ (Progress) in
+            print("In Progress")
+        }, success: { (task, responseObject) in
+            let responseStrInISOLatin = String(data: responseObject as! Data, encoding: String.Encoding.isoLatin1)
+            guard let modifiedDataInUTF8Format = responseStrInISOLatin?.data(using: String.Encoding.utf8) else {
+                print("could not convert data to UTF-8 format")
+                return
             }
-            }.resume()
+            do {
+                let responseJSONDict = try JSONSerialization.jsonObject(with: modifiedDataInUTF8Format )
+                print("responseJSONDict : ", responseJSONDict)
+                completion(responseJSONDict)
+            } catch {
+                print(error)
+            }
+        }, failure: { (task, error) in
+            print("ERROR : ", error)
+        })
     }
 }
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AFNetworking
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -170,7 +171,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func pullToRefresh() {
         self.refreshCtrl = UIRefreshControl()
         self.refreshCtrl.addTarget(self, action: #selector(fetch), for: .valueChanged)
-        self.tableView.refreshControl = self.refreshCtrl
+        if #available(iOS 10.0, *) {
+            self.tableView.refreshControl = self.refreshCtrl
+        } else {
+            // Fallback on earlier versions
+        }
     }
 }
 
