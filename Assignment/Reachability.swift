@@ -19,7 +19,8 @@ public class Reachability {
             $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {
                 SCNetworkReachabilityCreateWithAddress(nil, $0)
             }
-        }) else {
+        })
+            else {
             return false
         }
         

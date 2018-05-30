@@ -7,6 +7,7 @@ target 'Assignment' do
 
   # Pods for Assignment
 pod 'AFNetworking', '~> 3.0'
+pod 'Masonry'
 
 
   target 'AssignmentTests' do

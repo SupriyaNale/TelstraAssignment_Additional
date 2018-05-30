@@ -50,7 +50,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if fetchedData.count > 0 {
             return fetchedData.count
-        } else {
+        }
+        else {
             return 0
         }
     }
@@ -61,7 +62,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             design(indexPath: indexPath, cell: cell)
             return cell
-        } else {
+        }
+        else {
             return UITableViewCell()
         }
     }
@@ -101,6 +103,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.selectionStyle = .none
         
         downloadImage (indexPath: indexPath, cell: cell)
+        
+        cell.addConstraintsToViews()
     }
     
     func downloadImage(indexPath: IndexPath, cell: CustomeTableViewCell) {
@@ -110,7 +114,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             print("Cached image used, no need to download it")
             activityView.stopAnimating()
             cell.imageview.image = cache.object(forKey: (indexPath as NSIndexPath).row as AnyObject) as? UIImage
-        } else {
+        }
+        else {
             let imageUrl = fetchedData[indexPath.row].imageURL
             
             if let url:URL = URL(string: imageUrl) {
@@ -125,11 +130,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                                 self.cache.setObject(img, forKey: (indexPath as NSIndexPath).row as AnyObject)
                             }
                         })
-                    } else {
-//                        UIAlertController.show(message: "Unable to download Image")
+                    }
+                    else {
                     }
                 })
-            } else {
+            }
+            else {
                 cell.imageview.image = UIImage(named: "placeholder")
                 activityView.stopAnimating()
             }
@@ -146,7 +152,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         if Reachability.isConnectedToNetwork() {
             NetworkManager.shared.fetch(completion: {_ in
-                print("Executed Successfully.\(DataManager.sharedInstance.fetchedData.count)")
                 DispatchQueue.main.async(execute: { () -> Void in
                     self.loadingView.stopAnimating()
                     self.fetchedData = DataManager.sharedInstance.fetchedData
@@ -159,7 +164,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 }
                 UIAlertController.show(message: message)
             })
-        } else {
+        }
+        else {
             DispatchQueue.main.async() {
                 self.loadingView.stopAnimating()
                 UIAlertController.show(message: "\(Constants.Messages.networkError)")
@@ -173,7 +179,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.refreshCtrl.addTarget(self, action: #selector(fetch), for: .valueChanged)
         if #available(iOS 10.0, *) {
             self.tableView.refreshControl = self.refreshCtrl
-        } else {
+        }
+        else {
             // Fallback on earlier versions
         }
     }

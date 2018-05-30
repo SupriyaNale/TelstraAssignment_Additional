@@ -14,7 +14,8 @@ extension UIAlertController {
     static func show(message: String, completion: Constants.Blocks.Completion? = nil ) {
         if Thread.isMainThread {
             UIAlertController.show(message, completion: completion)
-        } else {
+        }
+        else {
             DispatchQueue.main.async {
                 UIAlertController.show(message, completion: completion)
             }

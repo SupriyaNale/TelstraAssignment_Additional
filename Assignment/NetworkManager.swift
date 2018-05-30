@@ -71,7 +71,7 @@ class NetworkManager: NSObject {
             }
             do {
                 let responseJSONDict = try JSONSerialization.jsonObject(with: modifiedDataInUTF8Format )
-                print("responseJSONDict : ", responseJSONDict)
+//                print("responseJSONDict : ", responseJSONDict)
                 completion(responseJSONDict)
             } catch {
                 print(error)

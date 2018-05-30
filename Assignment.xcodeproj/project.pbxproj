@@ -27,6 +27,7 @@
 		D35A8A1F20A95B3C009E2A4C /* ResponceParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35A8A1E20A95B3C009E2A4C /* ResponceParser.swift */; };
 		D35A8A2020A95ED1009E2A4C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D352158B20A571D300B207FF /* ViewController.swift */; };
 		D35A8A2220A96EA5009E2A4C /* UIAlertViewController+Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35A8A2120A96EA5009E2A4C /* UIAlertViewController+Show.swift */; };
+		D385DA5520BBD5D800CE1398 /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D385DA5420BBD5D800CE1398 /* Masonry.framework */; };
 		D3C3390820B56FDC002F5BB9 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3C3390720B56FDC002F5BB9 /* AFNetworking.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,8 @@
 		D35A8A1C20A95A15009E2A4C /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		D35A8A1E20A95B3C009E2A4C /* ResponceParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponceParser.swift; sourceTree = "<group>"; };
 		D35A8A2120A96EA5009E2A4C /* UIAlertViewController+Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertViewController+Show.swift"; sourceTree = "<group>"; };
+		D385DA5320BBD59300CE1398 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		D385DA5420BBD5D800CE1398 /* Masonry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Masonry.framework; path = "Pods/../build/Debug-iphoneos/Masonry/Masonry.framework"; sourceTree = "<group>"; };
 		D3C3390720B56FDC002F5BB9 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/Assignment-giivhlinzvldmpaputlenszacorp/Build/Products/Debug-iphonesimulator/AFNetworking/AFNetworking.framework"; sourceTree = "<group>"; };
 		D695C6B5A606438C2A304C3A /* Pods-Assignment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Assignment.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Assignment/Pods-Assignment.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D385DA5520BBD5D800CE1398 /* Masonry.framework in Frameworks */,
 				D3C3390820B56FDC002F5BB9 /* AFNetworking.framework in Frameworks */,
 				2F5D0FB75D787BC8CBEF5514 /* Pods_Assignment.framework in Frameworks */,
 			);
@@ -114,6 +118,7 @@
 		596198ACF0DA908A8ED594CA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D385DA5420BBD5D800CE1398 /* Masonry.framework */,
 				D3C3390720B56FDC002F5BB9 /* AFNetworking.framework */,
 				C041A40B9DA757C7857BBAEA /* Pods_Assignment.framework */,
 				AFCFC32373BD6F1259C38D91 /* Pods_AssignmentTests.framework */,
@@ -188,6 +193,7 @@
 				D352159020A571D300B207FF /* Assets.xcassets */,
 				D352159220A571D300B207FF /* LaunchScreen.storyboard */,
 				D352159520A571D300B207FF /* Info.plist */,
+				D385DA5320BBD59300CE1398 /* PrefixHeader.pch */,
 			);
 			path = Assignment;
 			sourceTree = "<group>";
@@ -478,10 +484,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Assignment/Pods-Assignment-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -691,6 +699,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				DEVELOPMENT_TEAM = X78BQYR3TH;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Masonry",
+				);
 				INFOPLIST_FILE = Assignment/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -713,6 +725,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				DEVELOPMENT_TEAM = X78BQYR3TH;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Masonry",
+				);
 				INFOPLIST_FILE = Assignment/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
