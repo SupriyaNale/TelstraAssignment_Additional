@@ -48,9 +48,6 @@ class CustomeTableViewCell: UITableViewCell {
         descLabel.tintColor = UIColor.lightGray
         descLabel.sizeToFit()
         descLabel.textAlignment = NSTextAlignment.left
-        
-        titleLabel.backgroundColor = .purple
-        descLabel.backgroundColor = .gray
     }
     
     func addSubviews() {
